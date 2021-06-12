@@ -1,0 +1,4 @@
+if [ -z "${ar18_install_dir+x}" ]; then
+  install_dir="/opt/ar18"
+fi
+module_name="setup_ssh_server"

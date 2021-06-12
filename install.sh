@@ -4,17 +4,14 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 set -ex
 LD_PRELOAD=
+# Start of script
 
+. "${script_dir}/vars"
 if [ -z "${ar18_helper_functions+x}" ]; then rm -rf "/tmp/helper_functions"; cd /tmp; git clone https://github.com/ar18-linux/helper_functions.git; . "/tmp/helper_functions/helper_functions/helper_functions.sh"; cd "${script_dir}"; fi
+
 obtain_sudo_password
 
-pacman_install "openssh"
-
-# Enable password authentication
-echo "${ar18_sudo_password}" | sudo -Sk sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" "/etc/ssh/sshd_config"
-
-# Enable the server
-echo "${ar18_sudo_password}" | sudo -Sk systemctl enable sshd
+ar18_install "${install_dir}" "${module_name}" "${script_dir}"
 
 # End of script
 set +ex
