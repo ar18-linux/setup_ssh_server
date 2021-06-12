@@ -5,8 +5,9 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 set -ex
 LD_PRELOAD=
 
+rm -rf "${script_dir}/helper_functions"
 git clone https://github.com/ar18-linux/helper_functions.git
-. "${script_dir}/helper_functions/helper_functions.sh"
+. "${script_dir}/helper_functions/helper_functions/helper_functions.sh"
 
 obtain_sudo_password
 
