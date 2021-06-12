@@ -4,8 +4,8 @@
 LD_PRELOAD=
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 IFS=$'\n' shell_options=($(shopt -op))
-set -exu
 set -o pipefail
+set -exu
 # Start of script
 
 . "${script_dir}/vars"
