@@ -1,4 +1,5 @@
-if [ -z "${ar18_install_dir+x}" ]; then
+module_name="setup_ssh_server"
+
+if [ ! -v ar18_install_dir ]; then
   install_dir="/opt/ar18"
 fi
-module_name="setup_ssh_server"
