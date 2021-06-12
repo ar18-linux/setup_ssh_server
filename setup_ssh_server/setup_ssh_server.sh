@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Template version 2021-06-12.01
+LD_PRELOAD_old="${LD_PRELOAD}"
 LD_PRELOAD=
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 IFS=$'\n' shell_options=($(shopt -op))
@@ -18,8 +19,11 @@ echo "${ar18_sudo_password}" | sudo -Sk sed -i "s/PasswordAuthentication no/Pass
 
 # Enable the server
 echo "${ar18_sudo_password}" | sudo -Sk systemctl enable sshd
+echo "${ar18_sudo_password}" | sudo -Sk systemctl start sshd
 
 # End of script
 for option in "${shell_options[@]}"; do
   eval "${option}"
 done
+LD_PRELOAD="${LD_PRELOAD_old}"
+return 0
