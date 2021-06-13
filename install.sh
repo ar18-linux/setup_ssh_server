@@ -38,6 +38,8 @@ obtain_sudo_password
 
 ar18_install "${install_dir}" "${module_name}" "${script_dir}"
 
+"${script_dir}/setup_ssh_server.sh"
+
 ##################################SCRIPT_END###################################
 # Restore old shell values
 set +x
