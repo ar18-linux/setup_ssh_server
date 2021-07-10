@@ -59,7 +59,6 @@ ar18.script.import ar18.pacman.install
 ar18.script.import ar18.script.read_target
 
 ar18.script.obtain_sudo_password
-ar18.script.import_vars
 
 ar18.pacman.install "openssh"
 
