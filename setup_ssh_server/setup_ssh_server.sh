@@ -56,7 +56,6 @@
 ar18.script.import ar18.script.execute_with_sudo
 ar18.script.import ar18.script.obtain_sudo_password
 ar18.script.import ar18.script.source_or_execute_config
-ar18.script.import ar18.script.import_vars
 ar18.script.import ar18.pacman.install
 ar18.script.import ar18.script.read_target
 
@@ -74,7 +73,7 @@ ar18.script.source_or_execute_config "source" "setup_ssh_server" "${ar18_deploym
 if [ "${enable_password_authentication}" = "1" ]; then
   ar18.script.execute_with_sudo sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" "/etc/ssh/sshd_config"
 fi
-ar18.script.execute_with_sudo sed -i -e "s/^#?Port.+/Port ${ar18_sshd_port}/g" "/etc/ssh/sshd_config"
+ar18.script.execute_with_sudo sed -i -E "s/^#?Port.+/Port ${ar18_sshd_port}/g" "/etc/ssh/sshd_config"
 
 # Enable the server
 ar18.script.execute_with_sudo systemctl enable sshd
