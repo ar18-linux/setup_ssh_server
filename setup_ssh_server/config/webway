@@ -1,2 +1,2 @@
-ar18_sshd_port=2222
+ar18_sshd_port=3333
 enable_password_authentication=1
