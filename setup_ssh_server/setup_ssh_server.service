@@ -1,0 +1,10 @@
+[Unit]
+Description=Send ssh ready notification
+Wants=network-online.target
+After=network.target network-online.target sshd.service
+ 
+[Service]
+ExecStart={{INSTALL_DIR}}/simple_mail/send_template.sh template_ssh_ready
+ 
+[Install]
+WantedBy=multi-user.target
