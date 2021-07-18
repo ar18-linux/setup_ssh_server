@@ -181,10 +181,13 @@ trap 'err_report "${BASH_SOURCE[0]}" ${LINENO} "${BASH_COMMAND}"' ERR
 #################################SCRIPT_START##################################
 
 ar18.script.import ar18.script.install
+ar18.script.import ar18.pacman.install
 
 . "${script_dir}/vars"
 
 ar18.script.install "${install_dir}" "${module_name}" "${script_dir}"
+
+ar18.pacman.install "openssh"
 
 "${script_dir}/setup_ssh_server/setup_ssh_server.sh"
 
